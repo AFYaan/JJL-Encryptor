@@ -9,7 +9,7 @@ import java.util.Objects;
  * @project JJL-Encryptor
  */
 
-public class Util {
+public class Utils {
     public static boolean isNull(Object... objects){
         return Arrays.stream(objects).anyMatch(Objects::isNull);
     }
