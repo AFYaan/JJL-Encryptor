@@ -1,6 +1,8 @@
 # JJL-Encryptor
 Jar Encryptor for JVM-JavaJarLoader
 
+## Usages
+
 ### Usage 1
 Create all files 
 ```
