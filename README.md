@@ -5,7 +5,7 @@ Jar Encryptor for JVM-JavaJarLoader
 
 ### Usage 1
 Create all files 
-```
+```commandline
 java -jar JJL-Encryptor.jar -password <encryption password> -path <jar path>
 ```
 
