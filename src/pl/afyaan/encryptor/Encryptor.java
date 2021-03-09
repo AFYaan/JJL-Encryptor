@@ -60,7 +60,7 @@ public class Encryptor {
         createTempJar();
         encryptTemp();
         createResFile();
-        createRawDataFile();
+        createRawDataFile(true);
         long end = System.currentTimeMillis();
         System.out.println("\nEncryption complete in: " + (end - start) + "ms");
     }
@@ -190,10 +190,14 @@ public class Encryptor {
         return baos.toByteArray();
     }
 
-    private void createRawDataFile(){
+    public void createRawDataFile(){
+        createRawDataFile(false);
+    }
+
+    private void createRawDataFile(boolean encrypted){
         System.out.println("\nCreating C++ resource jar...");
         String encryptedPath = this.path.replace(".jar", "-encrypted.jar");
-        File inputFile = new File(encryptedPath);
+        File inputFile = new File(encrypted ? encryptedPath : path);
         if(!inputFile.exists()){
             System.out.println("Encrypted jar not exists");
             System.exit(0);

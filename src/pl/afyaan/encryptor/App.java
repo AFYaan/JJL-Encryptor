@@ -3,6 +3,8 @@ package pl.afyaan.encryptor;
 import pl.afyaan.encryptor.options.ArgsParser;
 import pl.afyaan.encryptor.options.Option;
 
+import java.nio.charset.StandardCharsets;
+
 /**
  * @author AFYaan
  * @created 09.03.2021
@@ -23,13 +25,17 @@ class App {
         String path = parser.getValue("-path");
         String password = parser.getValue("-password");
 
-        if(Util.isNull(path, password)){
+        if(Util.isNull(path)){
             System.out.println("USAGE: -password <" + passwordOpt.getDescription() +
                     "> -path <" + pathOpt.getDescription() + ">");
             System.exit(0);
         }
 
         Encryptor encryptor = new Encryptor(path);
-        encryptor.encrypt(password);
+        if(Util.isNull(password)){
+            encryptor.createRawDataFile();
+        }else {
+            encryptor.encrypt(password);
+        }
     }
 }
