@@ -13,7 +13,7 @@ class App {
 
     public static void main(String[] args) {
         ArgsParser parser = new ArgsParser(args);
-        Option pathOpt = new Option("-path", "jar file path");
+        Option pathOpt = new Option("-path", "jar path");
         Option passwordOpt = new Option("-password", "encryption password");
 
         parser.add(pathOpt);
